@@ -1,0 +1,14 @@
+extends layout
+block content
+	.row.page-header
+		.col-lg-12
+			h1 #{title}
+	.row
+		.col-xs-12.col-md-12
+			form.form-horizontal(action="#{url}", method="post", role="form", enctype="multipart/form-data")
+				.form-group
+					label.col-sm-2.control-label(for="file") File
+					.col-sm-10
+						input(name='files',type='file', multiple='')
+				button.btn.btn-default.pull-right Upload
+		.col-xs-12.col-md-4

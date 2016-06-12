@@ -1,0 +1,30 @@
+extends layout
+block content
+	.row.page-header
+		.col-lg-12
+			h1 #{title}
+	.row
+		.col-xs-12.col-md-12
+			form.form-horizontal(action="/upload", method="post", role="form", enctype="multipart/form-data")
+				.form-group
+					label.col-xs-10.col-sm-2.control-label(for="algorithm") Algorithm
+					.col-xs-12.col-sm-2
+						select#rating.form-control.input-sm(name="algorithm")
+							each alg in algorithm
+								option #{alg}
+				.form-group
+					label.col-xs-10.col-sm-2.control-label(for="mode") Mode
+					.col-xs-12.col-sm-2
+						select#rating.form-control.input-sm(name="mode")
+							option encrypt
+							option decrypt
+				.form-group
+					label.col-sm-2.control-label(for="file") File
+					.col-sm-10
+						input(name='files',type='file', multiple='')
+				.form-group
+					label.col-sm-2.control-label(for="password") Password
+					.col-sm-10
+						input(name='password',type='text')
+				button.btn.btn-default.pull-right Upload
+		.col-xs-12.col-md-4
